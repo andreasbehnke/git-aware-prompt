@@ -5,7 +5,7 @@ find_git_branch() {
     if [[ "$branch" == "HEAD" ]]; then
       branch='detached*'
     fi
-    git_branch="($branch)"
+    git_branch="$(echo $branch | sed 's:.*/::' | cut -c1-20 )… "
   else
     git_branch=""
   fi
